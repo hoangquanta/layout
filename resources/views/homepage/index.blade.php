@@ -1,0 +1,121 @@
+@extends('layouts.master')
+{{-- todo: làm sao để thêm css riêng --}}
+
+@section('title')
+Soft UI Dashboard PRO by Creative Tim
+@endsection
+
+@section('content')
+    <div class="container-fluid py-4">
+        <div class="d-flex m-3">
+            <div class="ms-auto d-flex">
+            <div class="pe-4 mt-1 position-relative">
+                <p class="text-secondary text-xs font-weight-bold mb-2">Team members:</p>
+                <div class="d-flex align-items-center justify-content-center">
+                <div class="avatar-group">
+                    <a href="javascript:;" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Jessica Rowland">
+                    <img alt="Image placeholder" src="../../assets/img/team-1.jpg">
+                    </a>
+                    <a href="javascript:;" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Audrey Love">
+                    <img alt="Image placeholder" src="../../assets/img/team-2.jpg" class="rounded-circle">
+                    </a>
+                    <a href="javascript:;" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Michael Lewis">
+                    <img alt="Image placeholder" src="../../assets/img/team-3.jpg" class="rounded-circle">
+                    </a>
+                    <a href="javascript:;" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Lucia Linda">
+                    <img alt="Image placeholder" src="../../assets/img/team-4.jpg" class="rounded-circle">
+                    </a>
+                    <a href="javascript:;" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Ronald Miller">
+                    <img alt="Image placeholder" src="../../assets/img/team-5.jpg" class="rounded-circle">
+                    </a>
+                </div>
+                </div>
+                <hr class="vertical dark mt-0">
+            </div>
+            <div class="ps-4">
+                <button class="btn bg-gradient-info btn-icon-only mb-0 mt-3" data-toggle="modal" data-target="#new-board-modal">
+                <i class="fa fa-plus"></i>
+                </button>
+            </div>
+            </div>
+        </div>
+        <div class="mt-3 kanban-container">
+            <div class="py-2 min-vh-100 d-inline-flex" style="overflow-x: auto">
+            <div id="myKanban"></div>
+            </div>
+        </div>
+        <div class="modal fade" id="new-board-modal" role="dialog">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="h5 modal-title">Choose your new Board Name</h5>
+                <button type="button" class="btn close pe-1" data-dismiss="modal" data-target="#new-board-modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                </div>
+                <div class="pt-4 modal-body">
+                <div class="mb-4 input-group">
+                    <span class="input-group-text">
+                    <i class="far fa-edit"></i>
+                    </span>
+                    <input class="form-control" placeholder="Board Name" type="text" id="jkanban-new-board-name" />
+                </div>
+                <div class="text-end">
+                    <button class="m-1 btn btn-primary" id="jkanban-add-new-board" data-toggle="modal" data-target="#new-board-modal">
+                    Save changes
+                    </button>
+                    <button class="m-1 btn btn-secondary" data-dismiss="modal" data-target="#new-board-modal">
+                    Close
+                    </button>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="hidden opacity-50 fixed inset-0 z-40 bg-black" id="new-board-modal-backdrop"></div>
+        <div class="modal fade" id="jkanban-info-modal" style="display: none" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="h5 modal-title">Task details</h5>
+                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="pt-4 modal-body">
+                <input id="jkanban-task-id" class="d-none" />
+                <div class="mb-4 input-group">
+                    <span class="input-group-text">
+                    <i class="far fa-edit"></i>
+                    </span>
+                    <input class="form-control" placeholder="Task Title" type="text" id="jkanban-task-title" />
+                </div>
+                <div class="mb-4 input-group">
+                    <span class="input-group-text">
+                    <i class="fas fa-user"></i>
+                    </span>
+                    <input class="form-control" placeholder="Task Assignee" type="text" id="jkanban-task-assignee" />
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" placeholder="Task Description" id="jkanban-task-description" rows="4"></textarea>
+                </div>
+                <div class="alert alert-success d-none">Changes saved!</div>
+                <div class="text-end">
+                    <button class="m-1 btn btn-primary" id="jkanban-update-task" data-toggle="modal" data-target="#jkanban-info-modal">
+                    Save changes
+                    </button>
+                    <button class="m-1 btn btn-secondary" data-dismiss="modal" data-target="#jkanban-info-modal">
+                    Close
+                    </button>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="hidden opacity-50 fixed inset-0 z-40 bg-black" id="jkanban-info-modal-backdrop"></div>
+        
+    </div>
+@endsection
+    
+        
+    
