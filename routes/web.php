@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/helloworld', function () {
+Route::get('/', function () {
     return view('homepage.index');
 });

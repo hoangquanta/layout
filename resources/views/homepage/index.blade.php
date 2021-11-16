@@ -1,8 +1,10 @@
 @extends('layouts.master')
-{{-- todo: làm sao để thêm css riêng --}}
+@section('assets')
+    
+@endsection
 
 @section('title')
-Soft UI Dashboard PRO by Creative Tim
+<title>Homepage</title>
 @endsection
 
 @section('content')
